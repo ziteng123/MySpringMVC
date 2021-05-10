@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+       <context:component-scan base-package="com.teng"/>
+<!--        bean配置-->
+       <bean id="helloDao" class="com.teng.dao.HelloDao"/>
+       <bean id="HelloService" class="com.teng.service.HelloService">
+           <constructor-arg name="name" value="Spring IOC Container"/>
+           <property name="helloDao" ref="helloDao"/>
+       </bean>
+        <bean id="employee" class="com.teng.pojo.Employee">
+            <constructor-arg name="id" value="1"/>
+            <constructor-arg index="1" value="张三"/>
+            <constructor-arg name="age" value="19"/>
+            <constructor-arg type="double" value="19000"/>
+            <constructor-arg name="profession" value="Java开发工程师"/>
+        </bean>
+    <bean id="manager" class="com.teng.pojo.Manager">
+        <property name="name" value="张三"/>
+    </bean>
+
+
+
+
+</beans>
